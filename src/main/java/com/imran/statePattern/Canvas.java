@@ -1,9 +1,21 @@
 package com.imran.statePattern;
 
-public class Canvas {
+public class Canvas  {
     private Tool currentTool;
-    Canvas(Tool tool){
-        currentTool = tool;
-    }
     
+    public void mouseDown() {
+        currentTool.mouseDown();
+    }
+
+    public void mouseUp() {
+        currentTool.mouseUp();
+    }
+
+    public Tool getCurrentTool() {
+        return currentTool;
+    }
+
+    public void setCurrentTool(Tool currentTool) {
+        this.currentTool = currentTool;
+    }  
 }

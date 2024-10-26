@@ -1,15 +1,15 @@
 package com.imran.statePattern;
 
-public class TextBox implements  Tool {
+public class BrushTool implements  Tool{
 
     @Override
     public void mouseDown() {
-        System.out.println("Text box icon");
+        System.out.println("Brush icon");
     }
 
     @Override
     public void mouseUp() {
-        System.out.println("draw a text box");
+        System.out.println("Draw a line");
     }
 
 }

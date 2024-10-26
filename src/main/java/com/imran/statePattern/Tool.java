@@ -1,5 +1,6 @@
 package com.imran.statePattern;
 
-public abstract  class Tool {
-    
+public interface Tool {
+    void mouseDown();
+    void mouseUp();
 }
