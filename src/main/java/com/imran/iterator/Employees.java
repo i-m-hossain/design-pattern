@@ -1,44 +1,39 @@
 package com.imran.iterator;
 
-public class Employees {
-    private final String[] employees = new String[10]; // Fixed size of 10
-    private int size = 0; // To keep track of the number of elements in the array
+import java.util.ArrayList;
+import java.util.List;
+
+public class Employees<T> {
+    private final List<T> employees = new ArrayList<>();
+
+
 
     // Pops the last element from the stack
-    public String pop() {
-        if (size > 0) {
-            String lastEmployee = employees[size - 1]; // Get the last element
-            employees[size - 1] = null; // Remove it by setting to null
-            size--; // Decrease the size
-            return lastEmployee;
+    public T pop() {
+        if (!employees.isEmpty()) {
+            return employees.remove(employees.size() - 1);
         }
         return null; // Or throw an exception if preferred
     }
 
     // Pushes a new employee onto the stack
-    public void push(String person) {
-        if (size < employees.length) {
-            employees[size] = person; // Add at the current size index
-            size++; // Increase the size
-        } else {
-            System.out.println("Stack is full. Cannot add more employees.");
-        }
+    public void push(T person) {
+        employees.add(person);
     }
 
+
     // Returns the current employees in the stack
-    public String[] getEmployees() {
-        String[] currentEmployees = new String[size]; // Create a new array to hold actual employees
-        System.arraycopy(employees, 0, currentEmployees, 0, size); // Copy only the filled part
-        return currentEmployees;
+    public List<T> getEmployees() {
+        return new ArrayList<>(employees); // Return a copy for safety
     }
 
     // Returns the size of the employee array
     public int getSize() {
-        return size;
+        return employees.size();
     }
 
     // Method to return an iterator
-    public EmployeeIterator createIterator() {
-        return new EmployeesIterator(this);
+    public Iterator<T> createIterator() {
+        return new EmployeesIterator<>(this);
     }
 }

@@ -1,9 +1,10 @@
 package com.imran.iterator;
 
-public class EmployeesIterator implements EmployeeIterator{
-    private Employees employees;
+public class EmployeesIterator<T> implements  Iterator<T> {
+    private final Employees<T> employees;
     private int currentIndex = 0;
-    EmployeesIterator(Employees employees){
+
+    EmployeesIterator(Employees<T> employees){
         this.employees = employees;
     }
     @Override
@@ -12,11 +13,16 @@ public class EmployeesIterator implements EmployeeIterator{
     }
 
     @Override
-    public String next() {
+    public void next() {
         if(!hasNext()){
             throw new IndexOutOfBoundsException("No more employees to iterate");
         }
-        return employees.getEmployees()[currentIndex++];
+       currentIndex ++;
+    }
+
+    @Override
+    public T current() {
+        return employees.getEmployees().get(currentIndex);
     }
 
 }
