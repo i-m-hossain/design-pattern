@@ -1,5 +1,5 @@
 package com.imran.statePattern;
 
-public class Tool {
-
+public abstract  class Tool {
+    
 }
