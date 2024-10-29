@@ -1,7 +1,4 @@
-package com.imran;
-
-import com.imran.memento.Editor;
-import com.imran.memento.History;
+package com.imran.memento;
 
 public class Main {
     public static void main(String[] args) {

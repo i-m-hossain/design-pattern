@@ -13,7 +13,6 @@ public class Main {
         CompositeCommand compositeCommand = new CompositeCommand();
         compositeCommand.add(new ResizeCommand());
         compositeCommand.add(new BlackAndWhiteCommand());
-
         compositeCommand.execute();
     }
 }
